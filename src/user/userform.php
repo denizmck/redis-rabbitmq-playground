@@ -1,4 +1,4 @@
-<form action="index.php" method="post">
+<form action="handler/new_user_handler.php" method="post">
     <div class="row mb-3">
         <div class="col">
             <label for="username" class="form-label">Username</label>

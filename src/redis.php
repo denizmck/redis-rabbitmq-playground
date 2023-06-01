@@ -7,11 +7,13 @@
 
             <div class="cards pe-3" style="max-height: 590px; overflow: auto;">
                 <?php
+                require_once 'config.php';
+                require_once 'user/Usercard.php';
+
                 $ids = $redis->keys('user:*');
 
                 foreach($ids as $id) {
-                    $temp = new UserCard($redis, $id);
-                    array_push($userCards, $temp);
+                    $temp = new Usercard($id, $redis);
                     $temp->displayCard();
                 }
                 ?>
@@ -20,7 +22,7 @@
         </div>
         <div class="col-6">
             <h3>Editor</h3>
-            <?php include 'userform.php'; ?>
+            <?php include_once 'user/userform.php'; ?>
         </div>
     </div>
 </div>
